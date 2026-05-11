@@ -1,6 +1,6 @@
 # Setting up navigation
 
-DocsForge provides rich navigation options. Configure them in `mkdocs.yml` under `theme.features`.
+DocsForge provides rich navigation options. Configure them in `docsforge.yml` under `theme.features`.
 
 ## Navigation structure
 
@@ -121,7 +121,7 @@ theme:
 
 ## Custom navigation
 
-Define navigation explicitly in `mkdocs.yml`:
+Define navigation explicitly in `docsforge.yml`:
 
 ``` yaml
 nav:

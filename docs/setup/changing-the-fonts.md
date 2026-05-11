@@ -1,6 +1,6 @@
 # Changing the fonts
 
-DocsForge supports Google Fonts out of the box. Configure fonts in `mkdocs.yml` under the `theme.font` key.
+DocsForge supports Google Fonts out of the box. Configure fonts in `docsforge.yml` under the `theme.font` key.
 
 ## Configuration
 

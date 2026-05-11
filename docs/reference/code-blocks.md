@@ -121,7 +121,7 @@ Show command output:
 
 ```` markdown
 ``` console
-$ python docsforge build
+$ docsforge build
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: site
 INFO    -  Documentation built in 2.34 seconds
@@ -129,7 +129,7 @@ INFO    -  Documentation built in 2.34 seconds
 ````
 
 ``` console
-$ python docsforge build
+$ docsforge build
 INFO    -  Cleaning site directory
 INFO    -  Building documentation to directory: site
 INFO    -  Documentation built in 2.34 seconds

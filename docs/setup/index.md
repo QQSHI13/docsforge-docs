@@ -1,6 +1,6 @@
 # Setup
 
-DocsForge's setup guides help you customize every aspect of your documentation site. All configuration happens in `mkdocs.yml`.
+DocsForge's setup guides help you customize every aspect of your documentation site. All configuration happens in `docsforge.yml`.
 
 ## Overview
 
@@ -66,9 +66,9 @@ The following guides cover the most common customization scenarios:
 
 ## Configuration file
 
-All customization is done in `mkdocs.yml`. Here's a fully configured example:
+All customization is done in `docsforge.yml`. DocsForge loads all plugins and Markdown extensions automatically — you only configure what you want to customize.
 
-``` yaml title="mkdocs.yml"
+``` yaml title="docsforge.yml"
 site_name: My Project
 site_url: https://example.com/docs/
 site_author: Your Name
@@ -106,19 +106,6 @@ theme:
   font:
     text: Roboto
     code: Roboto Mono
-
-plugins:
-  - search
-  - minify:
-      minify_html: true
-
-markdown_extensions:
-  - admonition
-  - attr_list
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
 ```
 
 ## Next steps

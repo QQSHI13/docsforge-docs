@@ -1,22 +1,22 @@
 # Features
 
-DocsForge combines the best of modern documentation tooling into a single, self-contained package. Here's what you get out of the box.
+DocsForge includes everything you need to write and publish documentation. No extra installs, no extra config.
 
 ## Core Features
 
 <div class="grid cards" markdown>
 
--   :material-package-variant-closed:{ .lg .middle } &nbsp; **Self-Contained Builds**
+-   :material-package-variant-closed:{ .lg .middle } &nbsp; **Zero Dependencies**
 
     ---
 
-    Every dependency is vendored into your project. No network calls during build. No surprise dependency updates. Reproducible builds, guaranteed.
+    `pip install docsforge` gets you the engine, Material theme, all plugins, all Markdown extensions, KaTeX math, Pygments highlighting, fonts, and icons. Nothing else to install.
 
 -   :material-rocket-launch:{ .lg .middle } &nbsp; **Zero Configuration**
 
     ---
 
-    Start with a working site in seconds. Sensible defaults for theme, navigation, search, and styling. Customize only what you need.
+    Start with a working site in seconds. 7 plugins and 31 Markdown extensions load automatically. Customize only what you need.
 
 -   :material-theme-light-dark:{ .lg .middle } &nbsp; **Light & Dark Mode**
 
@@ -28,109 +28,50 @@ DocsForge combines the best of modern documentation tooling into a single, self-
 
     ---
 
-    Client-side search with instant results, highlighting, suggestions, and keyboard shortcuts. No external service required.
+    Client-side search powered by Lunr.js. No external services, no backend required. Works offline.
 
--   :material-responsive:{ .lg .middle } &nbsp; **Responsive Design**
-
-    ---
-
-    Looks great on every device — phones, tablets, laptops, and widescreen monitors. Touch-friendly navigation.
-
--   :material-image:{ .lg .middle } &nbsp; **Social Cards**
+-   :material-function-variant:{ .lg .middle } &nbsp; **Math Rendering**
 
     ---
 
-    Automatic Open Graph and Twitter Card generation for rich link previews when your docs are shared.
+    Write `$$...$$` and it renders with KaTeX. No CDN, no `extra_javascript`, no configuration.
+
+-   :material-code-tags:{ .lg .middle } &nbsp; **Syntax Highlighting**
+
+    ---
+
+    Code blocks render with Pygments colors at build time. Supports all major languages.
 
 </div>
 
-## Content Features
+## Markdown Extensions
 
-### Rich Markdown
+All enabled by default. No configuration needed.
 
-DocsForge extends standard Markdown with powerful syntax for technical writing:
+| Category | Extensions |
+|----------|-----------|
+| **Structure** | `toc`, `tables`, `fenced_code`, `def_list`, `footnotes`, `md_in_html`, `meta` |
+| **Text** | `admonition`, `abbr`, `attr_list`, `nl2br`, `sane_lists`, `wikilinks` |
+| **pymdownx** | `arithmatex`, `betterem`, `caret`, `critic`, `details`, `emoji`, `escapeall`, `extra`, `fancylists`, `highlight`, `inlinehilite`, `keys`, `magiclink`, `mark`, `pathconverter`, `progressbar`, `quotes`, `saneheaders`, `smartsymbols`, `snippets`, `striphtml`, `superfences`, `tabbed`, `tasklist`, `tilde` |
 
-- **Admonitions** — Note, warning, tip, danger, and custom callout boxes
-- **Code blocks** — Syntax highlighting for 300+ languages, line numbers, annotations, copy-to-clipboard
-- **Content tabs** — Group related content with tabbed interfaces
-- **Data tables** — Sortable, styled tables with column alignment
-- **Diagrams** — Mermaid.js integration for flowcharts, sequence diagrams, and more
-- **Math** — LaTeX rendering with MathJax or KaTeX
-- **Icons and emojis** — 8,000+ icons and 3,000+ emojis via `:material-heart:` syntax
+## Plugins
 
-### Navigation
+All enabled by default. No `plugins:` config needed.
 
-- **Tabbed sections** — Top-level sections become tabs
-- **Section indexes** — Click a section header to see its landing page
-- **Breadcrumbs** — Track your location in the page hierarchy
-- **Table of contents** — Auto-generated, sticky sidebar with deep linking
-- **Footer navigation** — Previous/next page links at the bottom of every page
+| Plugin | What it does |
+|--------|-----------|
+| `blog` | Blogging with authors, categories, archives |
+| `info` | Admonition callouts (note, tip, warning, danger) |
+| `meta` | OpenGraph metadata |
+| `minify` | Compress HTML/CSS/JS output |
+| `privacy` | Self-host external assets (Google Fonts, CDN scripts) |
+| `search` | Full-text search with Lunr.js |
+| `tags` | Tag system with tag pages |
 
-### Search
+## Publishing
 
-- **Instant results** — Search as you type
-- **Highlighting** — Matching terms highlighted in results
-- **Suggestions** — Autocomplete with keyboard navigation
-- **Sharing** — Copy a direct link to any search result
-- **Stemming** — Finds "run" when you search for "running"
+DocsForge builds static HTML. Deploy `site/` anywhere:
 
-## Build Features
-
-### Optimization
-
-- **HTML minification** — Strips whitespace and comments from output
-- **Asset compression** — Gzip-compatible static assets
-- **Incremental builds** — Only rebuild changed pages during development
-
-### Integration
-
-- **Git repository links** — "Edit this page" and "View source" buttons
-- **Git revision date** — Show when each page was last updated
-- **Analytics** — Plausible, Google Analytics, or custom providers
-- **Comments** — Giscus (GitHub Discussions) or Disqus integration
-
-## What DocsForge Includes (Vendored)
-
-| Component | Version | Purpose |
-|-----------|---------|---------|
-| MkDocs | latest | Static site generator |
-| Material theme | latest | Professional theme |
-| Pygments | latest | Syntax highlighting |
-| Python Markdown | latest | Markdown parser |
-| Pymdown Extensions | latest | Markdown extensions |
-| Lunr.js | latest | Client-side search |
-| Mermaid.js | latest | Diagram rendering |
-| Material icons | latest | 8,000+ vector icons |
-| Twemoji | latest | Emoji SVG fallback |
-
-All components are vendored as part of the starter template. You control when to update.
-
-## Philosophy
-
-DocsForge believes that:
-
-1. **Documentation should be easy to maintain** — If updating your docs toolchain is harder than writing docs, the toolchain is wrong.
-
-2. **Dependencies should be explicit** — You should know exactly what code builds your site. No hidden transitive dependencies.
-
-3. **Builds should be reproducible** — The same commit should always produce the same site. No "works on my machine."
-
-4. **Documentation should work offline** — Your docs build pipeline should work on a plane, in a submarine, or in a corporate air-gap.
-
-## Comparison with other tools
-
-| Feature | DocsForge | MkDocs + Material | Docusaurus | GitBook |
-|---------|-----------|-------------------|------------|---------|
-| Self-contained | :material-check: | :material-close: | :material-close: | :material-close: |
-| No install step | :material-check: | :material-close: | :material-close: | N/A (SaaS) |
-| Material Design | :material-check: | :material-check: | :material-close: | :material-close: |
-| Client-side search | :material-check: | :material-check: | :material-check: | :material-close: |
-| Offline builds | :material-check: | :material-close: | :material-close: | :material-close: |
-| Open source | :material-check: | :material-check: | :material-check: | :material-close: |
-| Free hosting | :material-check: | :material-check: | :material-check: | :material-close: |
-
-## Next steps
-
-- [Getting Started](getting-started.md) — Install DocsForge and create your first site
-- [Setup Guides](setup/index.md) — Customize every aspect of your documentation
-- [Reference](reference/index.md) — Master the Markdown syntax
+- **GitHub Pages** — [Ready-to-use workflow](publishing-your-site.md)
+- **Netlify, Vercel** — Drag and drop
+- **Your own server** — `rsync site/ server:/var/www/docs`

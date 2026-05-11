@@ -24,14 +24,13 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: '3.12'
 
-      - name: Install dependencies
-        run: |
-          pip install mkdocs-material
+      - name: Install DocsForge
+        run: pip install docsforge
 
       - name: Build site
-        run: mkdocs build --config-file mkdocs.yml
+        run: docsforge build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

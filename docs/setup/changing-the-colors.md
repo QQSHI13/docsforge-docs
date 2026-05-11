@@ -1,6 +1,6 @@
 # Changing the colors
 
-DocsForge uses the Material theme's color system. Customize colors in `mkdocs.yml` under the `theme.palette` key.
+DocsForge uses the Material theme's color system. Customize colors in `docsforge.yml` under the `theme.palette` key.
 
 ## Color palette
 

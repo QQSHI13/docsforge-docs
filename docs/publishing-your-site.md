@@ -59,7 +59,7 @@ jobs:
           python-version: '3.x'
 
       - name: Build site
-        run: python docsforge build
+        run: docsforge build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -94,7 +94,7 @@ Then configure your DNS provider with a CNAME record pointing to `username.githu
 
 ### Drag and drop
 
-1. Run `python docsforge build`
+1. Run `docsforge build`
 2. Drag the `site/` folder to [Netlify Drop](https://app.netlify.com/drop)
 
 ### Git integration
@@ -102,7 +102,7 @@ Then configure your DNS provider with a CNAME record pointing to `username.githu
 1. Push your repo to GitHub
 2. In Netlify, click **Add new site** → **Import an existing project**
 3. Choose your GitHub repository
-4. Set build command: `python docsforge build`
+4. Set build command: `docsforge build`
 5. Set publish directory: `site/`
 
 ## Vercel
@@ -111,7 +111,7 @@ Then configure your DNS provider with a CNAME record pointing to `username.githu
 2. In Vercel, click **Add New...** → **Project**
 3. Import your repository
 4. Override the build settings:
-   - **Build Command**: `python docsforge build`
+   - **Build Command**: `docsforge build`
    - **Output Directory**: `site/`
 
 ## Cloudflare Pages
@@ -119,7 +119,7 @@ Then configure your DNS provider with a CNAME record pointing to `username.githu
 1. Push your repo to GitHub
 2. In Cloudflare Pages, click **Create a project**
 3. Connect your GitHub account and select your repository
-4. Set build command: `python docsforge build`
+4. Set build command: `docsforge build`
 5. Set build output directory: `site/`
 
 ## Amazon S3 + CloudFront
@@ -127,7 +127,7 @@ Then configure your DNS provider with a CNAME record pointing to `username.githu
 For enterprise deployments:
 
 ``` bash title="Build and sync to S3"
-python docsforge build
+docsforge build
 aws s3 sync site/ s3://my-docs-bucket --delete
 aws cloudfront create-invalidation --distribution-id ABCD --paths "/*"
 ```
@@ -140,7 +140,7 @@ If you prefer containerized builds:
 FROM python:3.11-slim
 WORKDIR /docs
 COPY . .
-RUN python docsforge build
+RUN docsforge build
 FROM nginx:alpine
 COPY --from=0 /docs/site /usr/share/nginx/html
 ```
@@ -150,7 +150,7 @@ COPY --from=0 /docs/site /usr/share/nginx/html
 Because DocsForge sites are fully static, you can also distribute them as a ZIP file:
 
 ``` bash
-python docsforge build
+docsforge build
 zip -r my-docs.zip site/
 ```
 
@@ -158,7 +158,7 @@ Recipients can open `site/index.html` directly in their browser — no server re
 
 ## Build configuration for different hosts
 
-Some hosts require specific settings. Adjust `mkdocs.yml` accordingly:
+Some hosts require specific settings. Adjust `docsforge.yml` accordingly:
 
 ### GitHub Pages (project site)
 

@@ -4,47 +4,34 @@ All notable changes to DocsForge are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [10.1.0] — 2026-05-10
 
 ### Added
 
-- Initial release of DocsForge documentation site
-- Self-contained build system with vendored dependencies
-- Material theme integration with light/dark mode
-- Client-side search with Lunr.js
-- GitHub Actions workflow for automated GitHub Pages deployment
-- Comprehensive setup guides and reference documentation
+- **Zero-config Markdown** — 31 extensions loaded by default (all pymdownx + python-markdown). No `markdown_extensions:` config needed.
+- **KaTeX math** — Vendored KaTeX (1.5MB) renders `$$...$$` inline and display math. No CDN, no config.
+- **Pygments highlighting** — Syntax-colored code blocks at build time. No client-side JS.
+- **Dark mode toggle** — Light/dark mode switch in header. Auto-detects system preference.
+- **Auto-loaded plugins** — search, tags, blog, info, meta, minify, privacy all work without config.
+- **Self-hosted fonts** — Privacy plugin downloads and caches Google Fonts locally.
+
+### Changed
+
+- **Config file** renamed from `properdocs.yml` to `docsforge.yml`
+- **Theme namespace** changed from `mkdocs.themes` to `docsforge.themes`
+- **Plugin system** — 6 plugins removed, 7 remain as built-in defaults
+
+### Removed
+
+- `typeset` — Users can write Unicode directly
+- `optimize` — Requires external `pngquant` binary
+- `social` — Requires Pillow + CairoSVG
+- `projects` — Niche multi-project feature
+- `offline` — Privacy plugin covers most use cases
+- `group` — Plugin orchestrator (niche)
 
 ## [0.1.0] — 2025-05-10
 
 ### Added
 
-- **Self-contained architecture** — All dependencies (MkDocs, Material theme, extensions, icons) vendored into the project
-- **Zero-config builds** — Sensible defaults for theme, navigation, search, and styling
-- **Professional theme** — Material Design-inspired responsive layout
-- **Light and dark mode** — Automatic system preference detection with manual toggle
-- **Full-text search** — Client-side search with highlighting, suggestions, and keyboard shortcuts
-- **Rich Markdown extensions** — Admonitions, code blocks with syntax highlighting, content tabs, data tables, diagrams, icons, and emojis
-- **GitHub Pages workflow** — Ready-to-use GitHub Actions workflow for CI/CD deployment
-- **Social cards** — Open Graph and Twitter Card support for rich link previews
-- **Code annotations** — Line highlighting, annotations, and copy-to-clipboard for code blocks
-- **Navigation features** — Tabbed sections, section indexes, breadcrumbs, table of contents, footer navigation
-- **Optimization** — HTML minification and asset compression
-- **Analytics support** — Plausible and Google Analytics integration
-- **Comment integration** — Giscus (GitHub Discussions) support
-
-### Documentation
-
-- Getting started guide with installation and quick start
-- Site creation guide with project structure and configuration
-- Publishing guide for GitHub Pages, Netlify, Vercel, Cloudflare, S3, and Docker
-- Feature overview and philosophy
-- Setup guides for colors, fonts, language, navigation, search, analytics, social cards, and optimization
-- Reference documentation for admonitions, annotations, code blocks, content tabs, diagrams, formatting, icons, images, lists, and tooltips
-- Changelog (this file)
-- MIT License
-
----
-
-[Unreleased]: https://github.com/QQSHI13/docsforge-docs/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/QQSHI13/docsforge-docs/releases/tag/v0.1.0
+- Initial release

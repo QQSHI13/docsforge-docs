@@ -1,105 +1,68 @@
 # Philosophy
 
-DocsForge exists because we believe documentation tooling should be **simple, transparent, and reliable**.
+DocsForge exists because we believe documentation should be **as easy as possible**.
 
-## The problem with modern docs tooling
+## The problem
 
-Documentation tools have become increasingly complex. What started as "write Markdown, get a website" now involves:
+Modern docs tools require too much setup. What should be "write Markdown, get a website" often becomes:
 
-- Package managers with dependency resolution
-- Node.js version conflicts and `node_modules` bloat
-- Build pipelines that break when a transitive dependency updates
-- CI/CD environments that need special caching configuration
-- Toolchains that don't work without internet access
-
-We've all been there: you return to a documentation project after six months, run the build command, and it fails because some package somewhere updated and broke compatibility. You spend an hour fixing the toolchain instead of writing documentation.
+- Configure 10+ Markdown extensions
+- Install a theme separately
+- Add plugins one by one
+- Set up CDN scripts for math
+- Configure client-side JS for syntax highlighting
+- Debug why something broke after an update
 
 ## Our principles
 
-### 1. Self-containment
+### 1. Zero config for core features
 
-**Everything needed to build your docs should be in your repository.**
+**Everything you need works without configuration.**
 
-DocsForge vendors all dependencies — the build tool, the theme, the extensions, the icon fonts. When you clone a DocsForge project, you have everything. No `pip install`, no `npm install`, no downloads at build time.
+Write `$$...$$` → math renders. Write `!!! note` → admonition appears. Write ` ```python ` → code highlights. All 31 Markdown extensions and 7 plugins are loaded by default.
 
-This means:
-- Your documentation builds in 10 years exactly as it does today
-- You can build on a plane, in a submarine, or behind a corporate firewall
-- Your CI/CD pipeline is `git clone` → `python docsforge build`
-- You never waste time debugging dependency conflicts
+You configure only what you want to customize, not what you need to exist.
 
-### 2. Explicit over implicit
+### 2. Self-contained
 
-**You should know exactly what code builds your site.**
+**After `pip install docsforge`, you own everything.**
 
-When you use DocsForge, all the code is right there in your repo. You can read it, modify it, fork it. There are no hidden transitive dependencies three layers deep that might change behavior or introduce vulnerabilities.
+The theme, all plugins, all extensions, KaTeX, fonts, and Pygments are bundled inside the package. No CDN calls at runtime. No external fetches during build. Works offline.
 
-### 3. Defaults that delight
+### 3. Stable
 
-**You shouldn't need to configure 50 things before your site looks good.**
+**Your docs build the same way in 10 years.**
 
-DocsForge ships with carefully chosen defaults:
-- A professional Material Design theme
-- Responsive layout that works on all devices
-- Light and dark mode with system preference detection
-- Search, navigation, and code highlighting enabled by default
-- Typography and spacing tuned for readability
+Because everything is vendored in the package, version-pinning the package pins the entire toolchain. No transitive dependency surprises.
 
-Start writing immediately. Customize when you're ready.
+### 4. Material quality
 
-### 4. Markdown is enough
+**DocsForge is Material for MkDocs, made simpler.**
 
-**Your content should be in Markdown, not in proprietary formats or JavaScript code.**
+We didn't reinvent the theme. We took the world's most popular documentation theme and made it work without configuration. You get the same professional look, the same responsive layout, the same dark mode — just without the setup.
 
-DocsForge extends standard Markdown with useful syntax (admonitions, tabs, code blocks), but everything is still plain text. Your documentation remains:
-- Readable in any text editor
-- Diff-friendly in version control
-- Portable to any other Markdown-based tool
-- Accessible to contributors who don't know your toolchain
+## What we removed
 
-### 5. Documentation should outlive its toolchain
+| Feature | Why removed |
+|---------|-------------|
+| `typeset` | Users can write Unicode directly |
+| `optimize` | Requires external `pngquant` binary |
+| `social` | Requires Pillow + CairoSVG |
+| `projects` | Niche multi-project feature |
+| `offline` | Privacy plugin covers most use cases |
+| `group` | Plugin orchestrator (niche) |
 
-**The tool you use to build docs should not be a liability.**
+## What we changed
 
-When you choose a documentation platform, you're making a bet. Will it still exist in 5 years? Will it change pricing? Will it get acquired and shut down?
+| Before (Material/MkDocs) | After (DocsForge) |
+|---------------------------|-------------------|
+| Config file `docsforge.yml` | `docsforge.yml` |
+| Theme via `mkdocs.themes` | `docsforge.themes` |
+| Manually list all extensions | 31 loaded by default |
+| Manually list all plugins | 7 loaded by default |
+| `extra_javascript` for KaTeX | KaTeX vendored, zero config |
+| Client-side JS for highlighting | Pygments at build time |
 
-DocsForge mitigates this risk:
-- Everything is open source (MIT license)
-- Everything is in your repository (no external lock-in)
-- The underlying format is standard Markdown (universally portable)
-- You control when and how to update
+## Our goal
 
-## Who DocsForge is for
-
-DocsForge is designed for:
-
-- **Open source projects** that want professional docs without CI complexity
-- **Enterprise teams** working in air-gapped or heavily regulated environments
-- **Individual developers** who value simplicity and reliability
-- **Technical writers** who want to focus on content, not tooling
-- **Anyone** who has ever said "it worked yesterday" about a documentation build
-
-## Who DocsForge is not for
-
-DocsForge might not be the right choice if you need:
-
-- **Server-side features** — DocsForge builds static sites. No server-side rendering, no APIs, no dynamic content.
-- **Real-time collaboration** — Use Google Docs, Notion, or Confluence for collaborative drafting. Export to DocsForge for publishing.
-- **Complex authentication** — Static sites are public by default. Use your hosting platform's auth features if needed.
-
-## Inspirations
-
-DocsForge stands on the shoulders of excellent open source projects:
-
-- [MkDocs](https://www.mkdocs.org) — The static site generator that powers everything
-- [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) — The beautiful theme we bundle
-- [Python Markdown](https://python-markdown.github.io/) — The Markdown parser
-- [Pymdown Extensions](https://facelessuser.github.io/pymdown-extensions/) — The Markdown extensions
-
-We're grateful to the maintainers and contributors of these projects. DocsForge's contribution is packaging them into a self-contained, zero-config distribution.
-
-## License
-
-DocsForge is released under the MIT License. The vendored components retain their original licenses (all permissive open source licenses).
-
-See [License](license.md) for full details.
+> `pip install docsforge`, write Markdown, done.

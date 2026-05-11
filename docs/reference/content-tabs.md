@@ -53,33 +53,33 @@ Use `===` to define tabs:
 ``` markdown
 === "Linux"
     ``` bash
-    python docsforge serve
+    docsforge serve
     ```
 
 === "macOS"
     ``` bash
-    python docsforge serve
+    docsforge serve
     ```
 
 === "Windows"
     ``` powershell
-    python docsforge serve
+    docsforge serve
     ```
 ```
 
 === "Linux"
     ``` bash
-    python docsforge serve
+    docsforge serve
     ```
 
 === "macOS"
     ``` bash
-    python docsforge serve
+    docsforge serve
     ```
 
 === "Windows"
     ``` powershell
-    python docsforge serve
+    docsforge serve
     ```
 
 ## Example: Programming languages
@@ -143,7 +143,7 @@ Tabs can contain any Markdown, including other tabs:
         ```
 
 === "Configuration"
-    Edit `mkdocs.yml` to customize your site.
+    Edit `docsforge.yml` to customize your site.
 ```
 
 ## Tab labels with icons

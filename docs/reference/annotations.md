@@ -91,12 +91,12 @@ theme:
 Add a title bar to code blocks:
 
 ```` markdown
-``` yaml title="mkdocs.yml"
+``` yaml title="docsforge.yml"
 site_name: My Project
 ```
 ````
 
-``` yaml title="mkdocs.yml"
+``` yaml title="docsforge.yml"
 site_name: My Project
 ```
 
